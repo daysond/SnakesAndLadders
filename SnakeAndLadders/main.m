@@ -7,11 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InputHandler.h"
+#import "Player.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        Player *player = [Player new];
+        while (![player gameOver]) {
+            NSLog(@"please type \"roll\" or \"r\"");
+            NSString *input = [InputHandler output];
+            if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
+                [player roll];
+                [player updateGame];
+            }
+            
+        }
+      
     }
     return 0;
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		756771AE227E1F300004E628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 756771AD227E1F300004E628 /* main.m */; };
+		756771B6227E1F9E0004E628 /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 756771B5227E1F9E0004E628 /* InputHandler.m */; };
+		756771B9227E20CF0004E628 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 756771B8227E20CF0004E628 /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		756771AA227E1F300004E628 /* SnakeAndLadders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SnakeAndLadders; sourceTree = BUILT_PRODUCTS_DIR; };
 		756771AD227E1F300004E628 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		756771B4227E1F9E0004E628 /* InputHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
+		756771B5227E1F9E0004E628 /* InputHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		756771B7227E20CF0004E628 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		756771B8227E20CF0004E628 /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				756771AD227E1F300004E628 /* main.m */,
+				756771B7227E20CF0004E628 /* Player.h */,
+				756771B8227E20CF0004E628 /* Player.m */,
+				756771B4227E1F9E0004E628 /* InputHandler.h */,
+				756771B5227E1F9E0004E628 /* InputHandler.m */,
 			);
 			path = SnakeAndLadders;
 			sourceTree = "<group>";
@@ -119,6 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				756771AE227E1F300004E628 /* main.m in Sources */,
+				756771B9227E20CF0004E628 /* Player.m in Sources */,
+				756771B6227E1F9E0004E628 /* InputHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
