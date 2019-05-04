@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL gameOver;
 
 -(void)roll;
--(void)updateGame;
+-(void)updateSquare;
 
 @end
 

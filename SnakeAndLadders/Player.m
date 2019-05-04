@@ -41,7 +41,7 @@
     self.currentSquare = self.currentSquare + dieNum;
 }
 
-- (void)updateGame {
+- (void)updateSquare {
 
     if ([_gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]]) {
         NSUInteger previousSquare = self.currentSquare;

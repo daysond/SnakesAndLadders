@@ -19,11 +19,9 @@ int main(int argc, const char * argv[]) {
             NSString *input = [InputHandler output];
             if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
                 [player roll];
-                [player updateGame];
+                [player updateSquare];
             }
-            
         }
-      
     }
     return 0;
 }
