@@ -47,13 +47,11 @@
     }
 }
 
-#pragma mark - public
-
 - (void)roll {
     if (self.currentIndex == self.players.count) {
         self.currentIndex = 0;
     }
-    [self.players[self.currentIndex] roll];    
+    [self.players[self.currentIndex] roll];
 }
 
 - (void)output {
@@ -61,6 +59,16 @@
     self.shouldRestart = [self.players[self.currentIndex] gameOver];
     self.currentIndex ++;
 }
+
+- (NSString *)score {
+    NSMutableString *score = [NSMutableString stringWithFormat:@"Score: "];
+    for (int i = 0; i < [self.players count]; i++) {
+        [score appendFormat:@"%@: %ld ",[self.players[i].name capitalizedString], self.players[i].currentSquare];
+    }
+    return [NSString stringWithString:score];
+}
+
+#pragma mark - public
 
 - (void)createPlayer {
     if ([self.players count] == 0) {
@@ -80,13 +88,13 @@
     self.shouldRestart = NO;
 }
 
-- (NSString *)score {
-    NSMutableString *score = [NSMutableString stringWithFormat:@"Score: "];
-    for (int i = 0; i < [self.players count]; i++) {
-        [score appendFormat:@"%@: %ld ",[self.players[i].name capitalizedString], self.players[i].currentSquare];
+-(void)startGame {
+    NSString *input = [[InputHandler new] output:@"please type \"roll\" or \"r\"" ];
+    if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
+        [self roll];
+        [self output];
+        NSLog(@"%@",[self score]);
     }
-    return [NSString stringWithString:score];
 }
-
 
 @end

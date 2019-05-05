@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "InputHandler.h"
-#import "Player.h"
 #import "PlayerManager.h"
 
 int main(int argc, const char * argv[]) {
@@ -23,12 +21,7 @@ int main(int argc, const char * argv[]) {
                 [playerManager createPlayer];
                 continue;
             }
-            NSString *input = [[InputHandler new] output:@"please type \"roll\" or \"r\"" ];
-            if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
-                [playerManager roll];
-                [playerManager output];
-                NSLog(@"%@",[playerManager score]);
-            }
+            [playerManager startGame];
         }
     }
     return 0;

@@ -18,11 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL shouldRestart;
 @property (nonatomic) BOOL gameOn;
 
--(void)roll;
--(void)output;
 -(void)createPlayer;
 -(void)gameOver;
--(NSString*)score;
+-(void)startGame;
+
 @end
 
 NS_ASSUME_NONNULL_END
