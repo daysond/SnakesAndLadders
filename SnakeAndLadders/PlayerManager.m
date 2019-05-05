@@ -18,6 +18,7 @@
     if (self) {
         _players = [[NSMutableArray alloc]init];
         _currentIndex = 0;
+        _shouldRestart = NO;
     }
     return self;
 }
@@ -46,7 +47,9 @@
 
 - (void)output {
     [self.players[self.currentIndex] updateSquare];
+    self.shouldRestart = [self.players[self.currentIndex] gameOver];
     self.currentIndex ++;
+   
 }
 
 - (void)createPlayer {
@@ -61,9 +64,11 @@
     }
 }
 
-- (void)gameOver {
-    
-    
+-(void)gameOver{
+    [self.players removeAllObjects];
+    self.currentIndex = 0;
+    self.shouldRestart = NO;
 }
+
 
 @end

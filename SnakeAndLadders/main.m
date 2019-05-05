@@ -15,15 +15,17 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         PlayerManager *playerManager = [PlayerManager new];
-        InputHandler *inputHandler = [InputHandler new];
-        [playerManager createPlayer];
+        
         while (YES) {
-            
-            NSString *input = [inputHandler output:@"please type \"roll\" or \"r\"" ];
-            if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
-                [playerManager roll];
-                [playerManager output];
+            [playerManager createPlayer];
+            while (![playerManager shouldRestart]) {
+                NSString *input = [[InputHandler new] output:@"please type \"roll\" or \"r\"" ];
+                if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
+                    [playerManager roll];
+                    [playerManager output];
+                }
             }
+            [playerManager gameOver];
         }
     }
     return 0;

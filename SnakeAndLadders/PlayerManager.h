@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSMutableArray <Player *> *players;
 @property (nonatomic) NSUInteger currentIndex;
+@property (nonatomic) BOOL shouldRestart;
 
 -(void)roll;
 -(void)output;
 -(void)createPlayer;
 -(void)gameOver;
-
 @end
 
 NS_ASSUME_NONNULL_END

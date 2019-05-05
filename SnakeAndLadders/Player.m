@@ -47,11 +47,11 @@
         NSUInteger previousSquare = self.currentSquare;
         self.currentSquare = [_gameLogic[[NSNumber numberWithInteger:self.currentSquare]] integerValue];
         
-        (self.currentSquare > previousSquare) ? NSLog(@"Stairway to heaven! %@ jumped from %ld to %ld.",[self.name capitalizedString],previousSquare,self.currentSquare) : NSLog(@"Uh-oh, %@ got eaten by a snake. Now back to %ld from %ld.",self.name,self.currentSquare,previousSquare);
+        (self.currentSquare > previousSquare) ? NSLog(@"Stairway to heaven! %@ jumped from %ld to %ld.",[self.name capitalizedString],previousSquare,self.currentSquare) : NSLog(@"Uh-oh, %@ got eaten by a snake. Now back to %ld from %ld.",[self.name capitalizedString],self.currentSquare,previousSquare);
         return;
     }
     
-    if (self.currentSquare > 100) {
+    if (self.currentSquare >= 100) {
         self.gameOver = YES;
         NSLog(@"Congrats! %@ won!",[self.name capitalizedString]);
     } else {
