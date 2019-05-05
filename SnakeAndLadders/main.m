@@ -9,17 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "InputHandler.h"
 #import "Player.h"
+#import "PlayerManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        Player *player = [Player new];
-        while (![player gameOver]) {
-            NSLog(@"please type \"roll\" or \"r\"");
-            NSString *input = [InputHandler output];
+        PlayerManager *playerManager = [PlayerManager new];
+        InputHandler *inputHandler = [InputHandler new];
+        [playerManager createPlayer];
+        while (YES) {
+            
+            NSString *input = [inputHandler output:@"please type \"roll\" or \"r\"" ];
             if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
-                [player roll];
-                [player updateSquare];
+                [playerManager roll];
+                [playerManager output];
             }
         }
     }

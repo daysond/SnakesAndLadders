@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Player : NSObject
 
-@property (nonatomic, assign) NSUInteger currentSquare;
+@property (nonatomic) NSUInteger currentSquare;
 @property (nonatomic) BOOL gameOver;
+@property (nonatomic) NSString* name;
 
 -(void)roll;
 -(void)updateSquare;

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface InputHandler : NSObject
 
-+(NSString*)output;
+-(NSString*)output: (NSString*)prompt;
 
 @end
 

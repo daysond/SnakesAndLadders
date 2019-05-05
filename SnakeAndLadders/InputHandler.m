@@ -10,10 +10,10 @@
 
 @implementation InputHandler
 
-+ (NSString *)output{
+- (NSString *)output: (NSString*)prompt{
+    NSLog(@"%@",prompt);
     char input[255];
     fgets(input, 255, stdin);
-    
     return [[[NSString stringWithUTF8String:input] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
 }
 

@@ -37,7 +37,7 @@
 
 - (void)roll {
     NSUInteger dieNum = [self randomValue];
-    NSLog(@"You rolled a %ld",dieNum);
+    NSLog(@"%@ rolled a %ld",[self.name capitalizedString],dieNum);
     self.currentSquare = self.currentSquare + dieNum;
 }
 
@@ -47,15 +47,15 @@
         NSUInteger previousSquare = self.currentSquare;
         self.currentSquare = [_gameLogic[[NSNumber numberWithInteger:self.currentSquare]] integerValue];
         
-        (self.currentSquare > previousSquare) ? NSLog(@"Stairway to heaven! You jumped from %ld to %ld.",previousSquare,self.currentSquare) : NSLog(@"Uh-oh, you got eaten by a snake. Now back to %ld from %ld.",self.currentSquare,previousSquare);
+        (self.currentSquare > previousSquare) ? NSLog(@"Stairway to heaven! %@ jumped from %ld to %ld.",[self.name capitalizedString],previousSquare,self.currentSquare) : NSLog(@"Uh-oh, %@ got eaten by a snake. Now back to %ld from %ld.",self.name,self.currentSquare,previousSquare);
         return;
     }
     
     if (self.currentSquare > 100) {
         self.gameOver = YES;
-        NSLog(@"Congrats! You won!");
+        NSLog(@"Congrats! %@ won!",[self.name capitalizedString]);
     } else {
-        NSLog(@"you landed on %ld",self.currentSquare);
+        NSLog(@"%@ landed on %ld",[self.name capitalizedString],self.currentSquare);
     }
     
     
