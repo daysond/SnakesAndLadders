@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL gameOver;
 @property (nonatomic) NSString* name;
 
--(void)roll;
+-(NSUInteger)roll;
 -(void)updatePlayerStatus;
 
 @end

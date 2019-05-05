@@ -35,30 +35,18 @@
 
 #pragma mark public
 
-- (void)roll {
+- (NSUInteger)roll {
     NSUInteger dieNum = [self randomValue];
-    NSLog(@"%@ rolled a %ld",[self.name capitalizedString],dieNum);
     self.currentSquare = self.currentSquare + dieNum;
+    return dieNum;
 }
 
 - (void)updatePlayerStatus {
 
     if ([_gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]]) {
-        NSUInteger previousSquare = self.currentSquare;
         self.currentSquare = [_gameLogic[[NSNumber numberWithInteger:self.currentSquare]] integerValue];
-        
-        (self.currentSquare > previousSquare) ? NSLog(@"Stairway to heaven! %@ jumped from %ld to %ld.",[self.name capitalizedString],previousSquare,self.currentSquare) : NSLog(@"Uh-oh, %@ got eaten by a snake. Now back to %ld from %ld.",[self.name capitalizedString],self.currentSquare,previousSquare);
         return;
     }
-    
-    if (self.currentSquare >= 100) {
-        self.gameOver = YES;
-        NSLog(@"Congrats! %@ has won!",[self.name capitalizedString]);
-    } else {
-        NSLog(@"%@ landed on %ld",[self.name capitalizedString],self.currentSquare);
-    }
 }
-
-
 
 @end

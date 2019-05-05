@@ -36,8 +36,10 @@
         } else if ([input isEqualToString:@"quit"]) {
             input = [inputHandler output:@"Would you like to quit or restart? Enter \'restart\' to restart, anything else to quit."];
             if ([input isEqualToString:@"restart"]) {
+                NSLog(@"Game restarted!");
                 _gameShouldRestart = YES;
             } else {
+                NSLog(@"Thank you for playing!");
                 _gameOn = NO;
             }
             return 0;
@@ -51,12 +53,29 @@
     if (self.currentIndex == self.players.count) {
         self.currentIndex = 0;
     }
-    [self.players[self.currentIndex] roll];
+    NSUInteger dieNum = [self.players[self.currentIndex] roll];
+    NSLog(@"%@ rolled a %ld",[self.players[self.currentIndex].name capitalizedString],dieNum);
 }
 
 - (void)output {
-    [self.players[self.currentIndex] updatePlayerStatus];
-    self.gameShouldRestart = [self.players[self.currentIndex] gameOver];
+    Player *player = self.players[self.currentIndex];
+    NSUInteger previousSquare = player.currentSquare;
+    [player updatePlayerStatus];
+    
+    if (player.currentSquare != previousSquare) {
+        (player.currentSquare > previousSquare) ?
+          NSLog(@"Stairway to heaven! %@ jumped from %ld to %ld.",[player.name capitalizedString],previousSquare,player.currentSquare)
+        : NSLog(@"Uh-oh, %@ got eaten by a snake. Now back to %ld from %ld.",[player.name capitalizedString],player.currentSquare,previousSquare);
+    }
+
+    if (player.currentSquare >= 100) {
+        player.gameOver = YES;
+        NSLog(@"Congrats! %@ has won!",[player.name capitalizedString]);
+    } else {
+        NSLog(@"%@ landed on %ld",[player.name capitalizedString],player.currentSquare);
+    }
+    
+    self.gameShouldRestart = [player gameOver];
     self.currentIndex ++;
 }
 
