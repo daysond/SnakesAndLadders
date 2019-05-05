@@ -57,8 +57,6 @@
     } else {
         NSLog(@"%@ landed on %ld",[self.name capitalizedString],self.currentSquare);
     }
-    
-    
 }
 
 

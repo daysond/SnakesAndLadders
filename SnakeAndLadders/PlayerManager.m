@@ -49,7 +49,6 @@
     [self.players[self.currentIndex] updateSquare];
     self.shouldRestart = [self.players[self.currentIndex] gameOver];
     self.currentIndex ++;
-   
 }
 
 - (void)createPlayer {
