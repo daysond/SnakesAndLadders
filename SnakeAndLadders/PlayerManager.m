@@ -28,11 +28,18 @@
 
 -(NSInteger)parseInput {
     while (YES) {
-        NSString* input = [[InputHandler new] output:@"Please enter the number of players or enter \'quit\' to quit. "];
+        
+        InputHandler *inputHandler = [InputHandler new];
+        NSString* input = [inputHandler output:@"Please enter the number of players or enter \'quit\' to quit. "];
         if ([input intValue]) {
             return [input intValue];
         } else if ([input isEqualToString:@"quit"]) {
-            _gameOn = NO;
+            input = [inputHandler output:@"Would you like to quit or restart? Enter \'restart\' to restart, anything else to quit."];
+            if ([input isEqualToString:@"restart"]) {
+                _shouldRestart = YES;
+            } else {
+                _gameOn = NO;
+            }
             return 0;
         } else {
             NSLog(@"Please enter a valid number!");
