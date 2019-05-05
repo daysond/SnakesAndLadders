@@ -69,5 +69,13 @@
     self.shouldRestart = NO;
 }
 
+- (NSString *)score {
+    NSMutableString *score = [NSMutableString stringWithFormat:@"Score: "];
+    for (int i = 0; i < [self.players count]; i++) {
+        [score appendFormat:@"%@: %ld ",[self.players[i].name capitalizedString], self.players[i].currentSquare];
+    }
+    return [NSString stringWithString:score];
+}
+
 
 @end

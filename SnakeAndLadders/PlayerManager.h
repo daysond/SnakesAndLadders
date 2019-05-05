@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)output;
 -(void)createPlayer;
 -(void)gameOver;
+-(NSString*)score;
 @end
 
 NS_ASSUME_NONNULL_END

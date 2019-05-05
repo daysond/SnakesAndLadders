@@ -27,6 +27,7 @@ int main(int argc, const char * argv[]) {
             if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
                 [playerManager roll];
                 [playerManager output];
+                NSLog(@"%@",[playerManager score]);
             }
         }
     }
