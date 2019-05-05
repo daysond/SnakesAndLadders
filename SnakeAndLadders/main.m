@@ -17,15 +17,17 @@ int main(int argc, const char * argv[]) {
         PlayerManager *playerManager = [PlayerManager new];
         
         while (YES) {
-            [playerManager createPlayer];
-            while (![playerManager shouldRestart]) {
-                NSString *input = [[InputHandler new] output:@"please type \"roll\" or \"r\"" ];
-                if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
-                    [playerManager roll];
-                    [playerManager output];
-                }
+            
+            if ([playerManager shouldRestart]) {
+                [playerManager gameOver];
+                [playerManager createPlayer];
+                continue;
             }
-            [playerManager gameOver];
+            NSString *input = [[InputHandler new] output:@"please type \"roll\" or \"r\"" ];
+            if ([input isEqualToString:@"roll"] || [input isEqualToString:@"r"]) {
+                [playerManager roll];
+                [playerManager output];
+            }
         }
     }
     return 0;

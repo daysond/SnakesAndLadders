@@ -18,7 +18,7 @@
     if (self) {
         _players = [[NSMutableArray alloc]init];
         _currentIndex = 0;
-        _shouldRestart = NO;
+        _shouldRestart = YES;
     }
     return self;
 }
