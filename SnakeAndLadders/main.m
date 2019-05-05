@@ -16,8 +16,8 @@ int main(int argc, const char * argv[]) {
         
         while ([playerManager gameOn]) {
             
-            if ([playerManager shouldRestart]) {
-                [playerManager gameOver];
+            if ([playerManager gameShouldRestart]) {
+                [playerManager endGame];
                 [playerManager createPlayer];
                 continue;
             }

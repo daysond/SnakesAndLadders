@@ -18,7 +18,7 @@
     if (self) {
         _players = [[NSMutableArray alloc]init];
         _currentIndex = 0;
-        _shouldRestart = YES;
+        _gameShouldRestart = YES;
         _gameOn = YES;
     }
     return self;
@@ -36,7 +36,7 @@
         } else if ([input isEqualToString:@"quit"]) {
             input = [inputHandler output:@"Would you like to quit or restart? Enter \'restart\' to restart, anything else to quit."];
             if ([input isEqualToString:@"restart"]) {
-                _shouldRestart = YES;
+                _gameShouldRestart = YES;
             } else {
                 _gameOn = NO;
             }
@@ -55,8 +55,8 @@
 }
 
 - (void)output {
-    [self.players[self.currentIndex] updateSquare];
-    self.shouldRestart = [self.players[self.currentIndex] gameOver];
+    [self.players[self.currentIndex] updatePlayerStatus];
+    self.gameShouldRestart = [self.players[self.currentIndex] gameOver];
     self.currentIndex ++;
 }
 
@@ -82,10 +82,10 @@
     }
 }
 
--(void)gameOver{
+-(void)endGame{
     [self.players removeAllObjects];
     self.currentIndex = 0;
-    self.shouldRestart = NO;
+    self.gameShouldRestart = NO;
 }
 
 -(void)startGame {

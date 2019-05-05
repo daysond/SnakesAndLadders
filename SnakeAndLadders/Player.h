@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString* name;
 
 -(void)roll;
--(void)updateSquare;
+-(void)updatePlayerStatus;
 
 @end
 
