@@ -19,6 +19,7 @@
         _players = [[NSMutableArray alloc]init];
         _currentIndex = 0;
         _shouldRestart = YES;
+        _gameOn = YES;
     }
     return self;
 }
@@ -27,13 +28,16 @@
 
 -(NSInteger)parseInput {
     while (YES) {
-        NSString* input = [[InputHandler new] output:@"Please enter the number of players: "];
+        NSString* input = [[InputHandler new] output:@"Please enter the number of players or enter \'quit\' to quit. "];
         if ([input intValue]) {
             return [input intValue];
+        } else if ([input isEqualToString:@"quit"]) {
+            _gameOn = NO;
+            return 0;
+        } else {
+            NSLog(@"Please enter a valid number!");
         }
-        NSLog(@"Please enter a valid number!");
     }
-    
 }
 
 #pragma mark - public

@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
         
         PlayerManager *playerManager = [PlayerManager new];
         
-        while (YES) {
+        while ([playerManager gameOn]) {
             
             if ([playerManager shouldRestart]) {
                 [playerManager gameOver];

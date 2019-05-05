@@ -53,7 +53,7 @@
     
     if (self.currentSquare >= 100) {
         self.gameOver = YES;
-        NSLog(@"Congrats! %@ won!",[self.name capitalizedString]);
+        NSLog(@"Congrats! %@ has won!",[self.name capitalizedString]);
     } else {
         NSLog(@"%@ landed on %ld",[self.name capitalizedString],self.currentSquare);
     }
